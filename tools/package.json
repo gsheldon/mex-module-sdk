@@ -1,0 +1,24 @@
+{
+  "name": "@skedulo/mex-module-sdk-tools",
+  "version": "1.0.0",
+  "description": "All CLI tools for developing mex-module-sdk",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "author": "Skedulo",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "fs-extra": "11.1.1",
+    "minimist": "^1.2.8",
+    "nodejs-file-downloader": "4.12.1",
+    "extract-zip": "2.0.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.3",
+    "@types/node": "^16.11.26",
+    "@types/q": "^1.5.5",
+    "typescript": "^5.1.3"
+  }
+}
