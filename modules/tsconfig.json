@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* Basic Options */
+    "incremental": true,
+    "target": "es2021",
+    "module": "commonjs",
+    "outDir": "dist",
+    "jsx": "react",
+
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+    "strict": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": false,
+    "alwaysStrict": false,
+    "allowJs": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true, /* Ensure overriding members in derived classes are marked with an override modifier. */
+
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "esModuleInterop": true,
+
+    "sourceMap": true,
+    "declaration": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }
+}

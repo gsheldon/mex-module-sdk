@@ -8,6 +8,9 @@ async function run() {
     switch(actionType) {
         case "init":
             (await import("./init") as any).run()
+            break
+        case "create-module":
+            (await import("./create-module") as any).run(argv)
     }
 }
 

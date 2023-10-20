@@ -4,7 +4,7 @@
   "description": "All CLI tools for developing mex-module-sdk",
   "main": "dist/index.js",
   "scripts": {
-    "test-run": "node tools/dist/index.js init --parameter cool"
+    "test-run": "node tools/dist/index.js create-module ModuleB"
   },
   "author": "Skedulo",
   "license": "MIT",
