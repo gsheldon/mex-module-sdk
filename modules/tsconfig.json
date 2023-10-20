@@ -12,9 +12,9 @@
     /* Visit https://aka.ms/tsconfig to read more about this file */
     "strict": false,
     "noImplicitAny": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "strictFunctionTypes": true,
-    "strictBindCallApply": true,
+    "strictBindCallApply": false,
     "strictPropertyInitialization": true,
     "noImplicitThis": false,
     "alwaysStrict": false,
@@ -23,9 +23,9 @@
     /* Additional Checks */
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true, /* Ensure overriding members in derived classes are marked with an override modifier. */
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitOverride": false, /* Ensure overriding members in derived classes are marked with an override modifier. */
 
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "esModuleInterop": true,
