@@ -1,14 +1,14 @@
 import fs = require('fs');
 import fse = require('fs-extra');
 
-import {basePath} from "./config";
+import {basePath} from "../config";
 
 let argv = require('minimist')(process.argv.slice(2));
 
 export async function run() {
     let moduleName = argv["_"][1];
     let targetModuleFolder = basePath + `/modules/${moduleName}`
-    let templateFolder = basePath + '/template'
+    let templateFolder = basePath + '/template/module'
 
     // now copy everything
     fse.copySync(templateFolder, targetModuleFolder)

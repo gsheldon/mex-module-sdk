@@ -1,9 +1,9 @@
 import * as fs from "fs";
-import {basePath} from "./config";
+import {basePath} from "../config";
 import fse = require('fs-extra');
 import extract from "extract-zip";
 import {resolve} from "path";
-import {sh} from "./utils";
+import {sh} from "../utils";
 
 const Downloader = require("nodejs-file-downloader");
 
@@ -11,7 +11,7 @@ export async function run() {
     console.log("start running init")
 
     console.log("--- Downloading Engine ----")
-    // await downloadEngine()
+    await downloadEngine()
     console.log("--- Downloading Engine Finished ----")
 
 

@@ -1,5 +1,3 @@
-import fs = require('fs');
-
 let argv = require('minimist')(process.argv.slice(2));
 
 async function run() {
@@ -7,10 +5,17 @@ async function run() {
 
     switch(actionType) {
         case "init":
-            (await import("./init") as any).run()
+            (await import("./runners/init") as any).run()
             break
         case "create-module":
-            (await import("./create-module") as any).run(argv)
+            (await import("./runners/create-module") as any).run(argv)
+            break;
+        case "create-form":
+            (await import("./runners/create-form") as any).run(argv)
+            break;
+        case "install-form":
+            (await import("./runners/install-form") as any).run(argv)
+            break;
     }
 }
 

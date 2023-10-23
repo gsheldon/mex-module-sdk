@@ -4,7 +4,8 @@
   "description": "All CLI tools for developing mex-module-sdk",
   "main": "dist/index.js",
   "scripts": {
-    "test-run": "node tools/dist/index.js create-module 2048"
+    "test-run": "node tools/dist/index.js create-module 2048",
+    "build-tools": "build-tools.sh"
   },
   "author": "Skedulo",
   "license": "MIT",

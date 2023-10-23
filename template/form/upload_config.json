@@ -1,0 +1,9 @@
+{
+  "name": "$$FORM_NAME$$",
+  "defId": "$$DEF_ID$$",
+  "engineVersion": "1.0.0",
+  "customFunctionFeatures": {
+    "fetchFunction": false,
+    "saveFunction": false
+  }
+}
