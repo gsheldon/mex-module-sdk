@@ -47,6 +47,9 @@ class Container extends Component{
   constructor(props) {
     super(props);
     this.state = { tiles:[], score:0,over:false,win:false,keepPlaying:false,grid:new Grid(props.size),size:props.size}
+
+    this.onFinish = props.onFinish
+    this.goToLeaderboard = props.goToLeaderboard
   }
   componentWillMount() {
     this.setup()
@@ -95,7 +98,10 @@ class Container extends Component{
 	var _self = this;
     return (<View {...this._panResponder.panHandlers} style={styles.container} >
                 <Heading score={ this.state.score} best={this.state.best}></Heading>
-                <AboveGame onRestart={()=>_self.restart()}></AboveGame>
+                <AboveGame
+                    onFinish={() => _self.onFinish(_self.score)}
+                    goToLeaderboard={() => _self.goToLeaderboard()}
+                    onRestart={()=>_self.restart()}></AboveGame>
                 <GameContainer size={this.state.size} tiles={this.state.tiles} won={this.state.won} over={this.state.over}
                         onKeepGoing={()=>_self.keepGoing()} onTryAagin={()=>_self.restart()}>
                 </GameContainer>
@@ -286,8 +292,6 @@ class Container extends Component{
             // Update the score
             self.score += merged.value;
 
-            // The mighty 2048 tile
-            if (merged.value === 2048) self.won = true;
           } else {
             self.moveTile(tile, positions.farthest);
           }

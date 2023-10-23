@@ -4,7 +4,7 @@ import {
   StyleSheet,
 }  from 'react-native'
 import React from 'react'
-	
+
 import Dimensions from '../utils/dimensions'
 const {height, width} = Dimensions.get('window')
 
@@ -59,10 +59,6 @@ const Heading = (props) => {
         <View style={styles.container}>
           <Text style={styles.containerTitle}>SCORE</Text>
           <Text style={styles.containerValue}>{props.score}</Text>
-        </View>
-        <View style={styles.container}>
-          <Text style={styles.containerTitle}>BEST</Text>
-          <Text style={styles.containerValue}>{props.best}</Text>
         </View>
       </View>
     </View>
