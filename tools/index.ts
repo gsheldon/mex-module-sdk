@@ -4,8 +4,8 @@ async function run() {
     let actionType = argv["_"][0];
 
     switch(actionType) {
-        case "init":
-            (await import("./runners/init") as any).run()
+        case "get-engine":
+            (await import("./runners/get-engine") as any).run()
             break
         case "create-module":
             (await import("./runners/create-module") as any).run(argv)
@@ -18,6 +18,9 @@ async function run() {
             break;
         case "merge-module":
             (await import("./runners/merge-module") as any).run()
+            break;
+        case "update-template":
+            (await import("./runners/update-template") as any).run()
             break;
     }
 }
