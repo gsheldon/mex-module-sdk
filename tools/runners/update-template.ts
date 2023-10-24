@@ -54,19 +54,21 @@ let downloadMexModuleSdk = async function () {
 
     unzipFolderPath = tmpPath + "/" + unzipFolderPath
 
+    /* Replace some files */
+    let filesToCopy = ["/modules/package.json", "/modules/package-lock.json", "/modules/tsconfig.json", "/modules/index.ts"]
+    filesToCopy.forEach(pathToCopy => {
+        let fullDestinationPathToPaste = storePath + pathToCopy;
+        let fullSourcePathToCopy = unzipFolderPath + pathToCopy;
+
+        fs.writeFileSync(fullDestinationPathToPaste, fs.readFileSync(fullSourcePathToCopy, 'utf-8'))
+    })
+
+
     /* Replace entire folder */
     let pathsToCopy = ["/template", "/tools"]
     pathsToCopy.forEach((pathToCopy) => {
         deleteFolderRecursiveContent(storePath + pathToCopy)
         fs.cpSync(unzipFolderPath + pathToCopy, storePath + pathToCopy, { recursive: true })
-    })
-
-    let filesToCopy = ["/modules/package.json", "/modules/package-lock.json", "tsconfig.json", "index.ts"]
-    pathsToCopy.forEach(pathToCopy => {
-        let fullDestinationPathToPaste = storePath + pathToCopy;
-        let fullSourcePathToCopy = unzipFolderPath + pathToCopy;
-
-        fs.copyFileSync(fullSourcePathToCopy, fullDestinationPathToPaste, constants.COPYFILE_FICLONE_FORCE)
     })
 
     fs.unlinkSync(zipFilePath)
