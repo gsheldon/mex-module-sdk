@@ -22,6 +22,8 @@ async function run() {
         case "update-template":
             (await import("./runners/update-template") as any).run()
             break;
+        default:
+            throw Error("No action is matched")
     }
 }
 
