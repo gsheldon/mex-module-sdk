@@ -16,9 +16,9 @@ export async function run() {
     console.log("--- Downloading mex-module SDK Finished ----")
 
 
-    console.log("--- NPM Restore Engine ----")
+    console.log("--- NPM Restore Tools ----")
     await npmRestoreTools()
-    console.log("--- NPM Restore Engine Finished ----")
+    console.log("--- NPM Restore Tools Finished ----")
 }
 
 let downloadMexModuleSdk = async function () {
