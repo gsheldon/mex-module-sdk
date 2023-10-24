@@ -22,13 +22,12 @@ export async function run() {
 }
 
 let downloadMexModuleSdk = async function () {
-    let path = "https://github.com/Skedulo/mex-module-sdk"
+    let path = "https://github.com/Skedulo/mex-module-sdk/archive/refs/heads/master.zip"
     let storePath = basePath
     let tmpPath = basePath + "/tmp"
     let fileName = "mex-module-sdk.zip"
 
-    deleteFolderRecursive(tmpPath)
-    fs.mkdirSync(tmpPath)
+    deleteFolderRecursiveContent(tmpPath)
 
     const downloader = new Downloader({
         url: path, //If the file name already exists, a new file with the name 200MB1.zip is created.
@@ -56,10 +55,9 @@ let downloadMexModuleSdk = async function () {
 
     let pathsToCopy = ["/template", "/tools"]
     pathsToCopy.forEach((pathToCopy) => {
-        deleteFolderRecursive(storePath + pathToCopy)
-        fs.cpSync(unzipFolderPath + pathToCopy, pathToCopy, { recursive: true })
+        deleteFolderRecursiveContent(storePath + pathToCopy)
+        fs.cpSync(unzipFolderPath + pathToCopy, storePath + pathToCopy, { recursive: true })
     })
-
 
     fs.unlinkSync(zipFilePath)
     deleteFolderRecursive(unzipFolderPath)
@@ -82,5 +80,18 @@ const deleteFolderRecursive = function(path: string) {
             }
         });
         fs.rmdirSync(path);
+    }
+};
+
+const deleteFolderRecursiveContent = function(path: string) {
+    if( fs.existsSync(path) ) {
+        fs.readdirSync(path).forEach(function(file) {
+            let curPath = path + "/" + file;
+            if(fs.lstatSync(curPath).isDirectory()) { // recurse
+                deleteFolderRecursive(curPath);
+            } else { // delete file
+                fs.unlinkSync(curPath);
+            }
+        });
     }
 };
