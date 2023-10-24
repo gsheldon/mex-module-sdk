@@ -28,7 +28,6 @@ let downloadMexModuleSdk = async function () {
     let fileName = "mex-module-sdk.zip"
 
     deleteFolderRecursive(tmpPath)
-    fs.mkdirSync(storePath)
     fs.mkdirSync(tmpPath)
 
     const downloader = new Downloader({
@@ -68,10 +67,7 @@ let downloadMexModuleSdk = async function () {
 
 let npmRestoreTools = async function () {
     await sh([
-        "cd tools",
-        "tsc",
-        "npm install --force",
-        "cd ../"
+        "./build-tools.sh"
     ])
 }
 
