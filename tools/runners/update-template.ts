@@ -5,6 +5,7 @@ import extract from "extract-zip";
 import {resolve} from "path";
 import {sh} from "../utils";
 import {forEach} from "lodash";
+import {constants} from "fs";
 
 const Downloader = require("nodejs-file-downloader");
 
@@ -53,10 +54,19 @@ let downloadMexModuleSdk = async function () {
 
     unzipFolderPath = tmpPath + "/" + unzipFolderPath
 
+    /* Replace entire folder */
     let pathsToCopy = ["/template", "/tools"]
     pathsToCopy.forEach((pathToCopy) => {
         deleteFolderRecursiveContent(storePath + pathToCopy)
         fs.cpSync(unzipFolderPath + pathToCopy, storePath + pathToCopy, { recursive: true })
+    })
+
+    let filesToCopy = ["/modules/package.json", "/modules/package-lock.json", "tsconfig.json", "index.ts"]
+    pathsToCopy.forEach(pathToCopy => {
+        let fullDestinationPathToPaste = storePath + pathToCopy;
+        let fullSourcePathToCopy = unzipFolderPath + pathToCopy;
+
+        fs.copyFileSync(fullSourcePathToCopy, fullDestinationPathToPaste, constants.COPYFILE_FICLONE_FORCE)
     })
 
     fs.unlinkSync(zipFilePath)
