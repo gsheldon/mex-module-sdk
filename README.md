@@ -4,6 +4,9 @@
 - template: The template coming from https://github.com/Skedulo/mex-module-sdk
 
 # Tutorial
+## Init the tools
+Run `./build-tools.sh`
+
 ## Create new form
 Run `./run.sh create-form {NAME}`
 
