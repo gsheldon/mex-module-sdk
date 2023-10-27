@@ -81,6 +81,6 @@ zip -r "$IOS_BUNDLE_FILE" assets index.bundle
 
 In the end, it will output 2 zip files at:
 - `./engine/output/ios/ios$MEX_VERSION.zip` - iOS
-- `./engine/output/android/ios$MEX_VERSION.zip` - Android
+- `./engine/output/android/android$MEX_VERSION.zip` - Android
 
 That's all of it, you will have 2 engines, 1 engine for iOS/ 1 engine for Android at the end.
