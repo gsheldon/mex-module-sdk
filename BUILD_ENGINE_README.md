@@ -30,12 +30,6 @@ After all the steps, run: `./run.sh merge-module`, it will start merging the mod
 ## Build Engine
 After all the above steps, the Android and iOS is ready to be built:
 
-iOS:
-``
-
-Android:
-``
-
 Here is the old script that we use to build engine before, you should just probably follow this step:
 
 First, `cd ./engine`
