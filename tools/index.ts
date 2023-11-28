@@ -16,6 +16,9 @@ async function run() {
         case "install-form":
             (await import("./runners/install-form") as any).run(argv)
             break;
+        case "install-module":
+            (await import("./runners/install-module") as any).run(argv)
+            break;
         case "merge-module":
             (await import("./runners/merge-module") as any).run()
             break;

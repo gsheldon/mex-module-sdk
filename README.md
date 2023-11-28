@@ -16,6 +16,10 @@ Run `./run.sh install-form -f {folderPath}`
 ## Create new module
 Run `./run.sh create-module {NAME}`
 
+## Install a module
+Run `./run.sh instal-module -f {FOLDER_PATH} -t {ADMIN_TOKEN} - e  {'DEV'|'STAGING'|'PROD'}`
+
+
 ## Debugging local
 First, you need to get the engine by running:
 `./run.sh get-engine`
