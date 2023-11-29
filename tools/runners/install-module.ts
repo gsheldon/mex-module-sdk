@@ -86,20 +86,23 @@ export async function run(argv: any) {
 
                 // Check if module already exists or not
 
-                let result = await axios.get(`${envUrl}/form/module/fetch/${folderName}`, {
-                    headers: {
-                        "Authorization" : "Bearer " + token,
-                        "X-Skedulo-Name": `${folderName}.zip`
-                    }
-                })
 
                 let moduleExisted = false
 
-                if (result.data?.result?.uid) {
-                    moduleExisted = true
+                try {
+                    let result = await axios.get(`${envUrl}/form/module/fetch/${folderName}`, {
+                        headers: {
+                            "Authorization" : "Bearer " + token,
+                            "X-Skedulo-Name": `${folderName}.zip`
+                        }
+                    })
 
-                    console.log(chalk.blueBright("Module already existed - Update module"))
-                }
+                    if (result.data?.result?.uid) {
+                        moduleExisted = true
+
+                        console.log(chalk.blueBright("Module already existed - Update module"))
+                    }
+                } catch (e) { }
 
                 try {
                     if (!moduleExisted) {
@@ -151,8 +154,6 @@ export async function run(argv: any) {
 
                 logProcess("Done Processing module for " + url, true)
             }
-
-
 
             logProcess("Done Uploading module", true)
 
