@@ -16,7 +16,7 @@ let URLS = {
         "https://dev-api.au.test.skl.io"
     ],
     "PERF": [
-      "https://api.perf.skl.io"
+        "https://api.perf.skl.io"
     ],
     "STAGING": [
         "https://staging-api.test.skl.io",
@@ -85,8 +85,6 @@ export async function run(argv: any) {
                 logProcess("Uploading module for " + envUrl)
 
                 // Check if module already exists or not
-
-
                 let moduleExisted = false
 
                 try {
@@ -162,10 +160,15 @@ export async function run(argv: any) {
 
                 console.log(chalk.red.bgWhite.bold("These environment has been failed to upload"), failedUploadUrls)
             }
+
+            if (existsSync(zipDestination)) {
+                fs.unlinkSync(zipDestination);
+            }
         }
 
         // await deleteModuleIfExisted()
         await processModule(folderPath)
+
         console.log("Install successfully");
 
     } catch (err) {
