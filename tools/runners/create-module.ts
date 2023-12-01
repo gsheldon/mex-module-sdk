@@ -19,9 +19,9 @@ export async function run() {
     fs.writeFileSync(targetModuleFolder + "/index.ts", fileContent.replace("$$MODULE_NAME$$", moduleName))
 
     // Now update modules_config.json
-    let modulesConfigPath = basePath + `/modules/modules_config.json`
+    let modulesConfigPath = basePath + `/modules/modules.json`
     let modulesConfigObj = JSON.parse(fs.readFileSync(modulesConfigPath, "utf-8"))
-    modulesConfigObj[moduleName] = {}
+    modulesConfigObj.push(moduleName)
 
     fs.writeFileSync(modulesConfigPath, JSON.stringify(modulesConfigObj, null, 2))
 }
