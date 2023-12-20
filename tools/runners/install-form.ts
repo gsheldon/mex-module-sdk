@@ -25,6 +25,13 @@ export async function run(argv: any) {
         async function uploadResourceFile() {
             logProcess("Start processing resource file")
 
+            const staticResourcesObject: any = {}
+
+            if (existsSync(`./${folder}/mex_definition/static_resources/regex.js`)) {
+                console.log("Detect regex file")
+                staticResourcesObject.regex = readFileSync(`./${folder}/mex_definition/static_resources/regex.js`).toString()
+            }
+
             let localesObject = {}
 
             let promise = new Promise<void>((resolve, reject) => {
@@ -40,7 +47,9 @@ export async function run(argv: any) {
 
             await promise;
 
-            let resultFromUploadFile = await axios.post(`${url}/form/resources/locales`, localesObject,{
+            staticResourcesObject.locales = localesObject
+
+            let resultFromUploadFile = await axios.post(`${url}/form/resources`, staticResourcesObject,{
                 headers: {
                     "Authorization" : "Bearer " + token,
                     'Content-Type': 'application/json'

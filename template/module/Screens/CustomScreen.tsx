@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {useContext, useRef} from 'react'
 import {ContextProxy, CoreContainer, ServicesProxy} from "@skedulo/mex-engine-proxy";
-import {View} from "react-native";
+import {View, Text} from "react-native";
 
 type Props = {
     route: any,
@@ -21,8 +21,12 @@ const CustomScreen: React.FC<Props> = ({route, navigation}) => {
     useContext(instanceDataContext)
 
     return (
-        <View style={{flex: 1}}>
-            Welcome to Custom extension
+        <View style={{flex: 1, alignItems: "center"}}>
+            <Text style={{
+                marginTop: 16,
+                fontSize: 25,
+                alignSelf: "center",
+                alignContent: "center"}}>Welcome to Custom extension</Text>
         </View>)
 }
 
