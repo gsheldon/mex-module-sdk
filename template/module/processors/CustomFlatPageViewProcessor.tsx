@@ -1,10 +1,9 @@
 import React from "react";
 import {View} from "react-native";
 import {
-    AbstractFlatPageViewProcessor,
-    ListPageProcessorInterface,
     StandardComponentArgs,
     StandardComponentProps,
+    AbstractCustomFlatPageViewProcessor
 } from "@skedulo/mex-engine-proxy";
 import {BaseComponentModel} from "@skedulo/mex-types";
 
@@ -14,10 +13,10 @@ type CustomFlatPageViewProps = StandardComponentProps<CustomFlatPageViewArgs, Cu
 
 interface CustomFlatPageViewComponentModel extends BaseComponentModel {
 }
-export default class CustomFlatPageViewProcessor extends AbstractFlatPageViewProcessor<CustomFlatPageViewProps, CustomFlatPageViewArgs, CustomFlatPageViewComponentModel> implements ListPageProcessorInterface {
 
-    getTypeName(): string {
-        return "CustomFlatPageView";
+export default class CustomFlatPageViewProcessor extends AbstractCustomFlatPageViewProcessor<CustomFlatPageViewProps, CustomFlatPageViewArgs, CustomFlatPageViewComponentModel>{
+    getCustomProcessorTypeName(): string {
+        return "CustomFlatPageView"
     }
 
     generateInnerComponent(args: CustomFlatPageViewArgs): JSX.Element {

@@ -7,10 +7,18 @@ const moduleName = "$$MODULE_NAME$$"
 
 function main(): CustomComponentRegistry {
 
-    let registry = new CustomComponentRegistryImpl(moduleName)
+    const registry = new CustomComponentRegistryImpl(moduleName)
 
-    registry.registerFlatPageComponentProcessor(new CustomFlatPageViewProcessor())
-    registry.registerListPageItemComponentProcessor(new CustomListItemViewProcessor())
+    const registryFlatPageInfo = {
+        componentProcessor: new CustomFlatPageViewProcessor(moduleName);
+    }
+
+    const registryListPageInfo = {
+        componentProcessor: new CustomListItemViewProcessor(moduleName);
+    }
+
+    registry.registerFlatPageComponentProcessor(registryFlatPageInfo)
+    registry.registerListPageItemComponentProcessor(registryListPageInfo)
 
     registry.registerScreen({
         screen: CustomScreen,
