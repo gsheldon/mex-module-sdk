@@ -17,7 +17,7 @@ interface CustomFlatPageViewComponentModel extends BaseComponentModel {
 export default class CustomFlatPageViewProcessor extends AbstractFlatPageViewProcessor<CustomFlatPageViewProps, CustomFlatPageViewArgs, CustomFlatPageViewComponentModel> implements ListPageProcessorInterface {
 
     getTypeName(): string {
-        return "YourCustomFlatPageView";
+        return "CustomFlatPageView";
     }
 
     generateInnerComponent(args: CustomFlatPageViewArgs): JSX.Element {

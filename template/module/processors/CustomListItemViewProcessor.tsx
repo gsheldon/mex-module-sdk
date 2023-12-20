@@ -17,7 +17,7 @@ interface CustomListItemViewComponentModel extends BaseComponentModel {
 export default class CustomListItemViewProcessor extends AbstractProcessor<CustomListItemViewProps, CustomListItemViewArgs, CustomListItemViewComponentModel> implements ListPageProcessorInterface {
 
     getTypeName(): string {
-        return "YourCustomListItemView";
+        return "CustomListItemView";
     }
 
     generateInnerComponent(args: CustomListItemViewArgs): JSX.Element {
