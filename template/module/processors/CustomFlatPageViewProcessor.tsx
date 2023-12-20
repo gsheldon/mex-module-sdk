@@ -21,7 +21,7 @@ export default class CustomFlatPageViewProcessor extends AbstractCustomFlatPageV
 
     generateInnerComponent(args: CustomFlatPageViewArgs): JSX.Element {
         return <View style={{flex: 1}}>
-            Your custom list item layout
+            Your custom flat page view
         </View>
     }
 }
