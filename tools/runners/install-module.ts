@@ -3,32 +3,12 @@ const FormData = require('form-data'); // npm install --save form-dataÏ
 import axios, {AxiosError} from "axios";
 import lodash from "lodash";
 import * as fs from "fs";
-import {basePath} from "../config";
+import {basePath, URLS} from "../config";
 import chalk from "chalk";
 
 let exec = require('child_process').exec;
 
 const DEFAULT_URL="DEV"
-
-let URLS = {
-    "DEV": [
-        "https://dev-api.test.skl.io",
-        "https://dev-api.au.test.skl.io"
-    ],
-    "PERF": [
-        "https://api.perf.skl.io"
-    ],
-    "STAGING": [
-        "https://staging-api.test.skl.io",
-        "https://staging-api.au.test.skl.io"
-    ],
-    "PROD": [
-        "https://api.skedulo.com",
-        "https://api.au.skedulo.com",
-        "https://api.uk.skedulo.com",
-        "https://api.ca.skedulo.com",
-    ]
-}
 
 export async function run(argv: any) {
     try {

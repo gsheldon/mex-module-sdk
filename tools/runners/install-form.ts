@@ -3,17 +3,15 @@ const FormData = require('form-data'); // npm install --save form-dataÏ
 import axios, {AxiosError} from "axios";
 import lodash from "lodash";
 import * as fs from "fs";
+import {DEFAULT_ADMIN_TENANT_TOKEN, DEFAULT_TENANT_ENVIRONMENT_URL} from "../config";
 
 let exec = require('child_process').exec;
 
-const DEFAULT_TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3Quc2tsLmlvL2F1dGgvdG9rZW4iLCJhdWQiOiIyOTdjNGM1MjU1MjMyZjYyMzYxNTJmODM4Y2I3MGIzNyIsImp0aSI6IllpU1Bydk1lM0NwT044dVJyQXFEa0tvNGpFVnJ1bEc4IiwiaHR0cHM6Ly9hcGkuc2tlZHVsby5jb20vc2ZfZW52Ijoic2FsZXNmb3JjZSIsImh0dHBzOi8vYXBpLnNrZWR1bG8uY29tL3ZlbiI6eyJ1c2VyX2lkIjoiMDA1NWkwMDAwMDUwUWJPQUFVIiwiY29tbXVuaXR5X2lkIjpudWxsLCJiYXNlX3VybCI6Imh0dHBzOi8vbG9naW4uc2FsZXNmb3JjZS5jb20ifSwiaHR0cHM6Ly9hcGkuc2tlZHVsby5jb20vdXNlcl9pZCI6InNhbGVzZm9yY2V8MDA1NWkwMDAwMDUwUWJPQUFVIiwiaHR0cHM6Ly9hcGkuc2tlZHVsby5jb20vb3JnYW5pemF0aW9uX2lkIjoiMDBENWkwMDAwMDlMUkxWRUE0IiwiaHR0cHM6Ly9hcGkuc2tlZHVsby5jb20vdXNlcm5hbWUiOiJodXkudnUrbWV4ZGV2QHNrZWR1bG8uY29tIiwiaHR0cHM6Ly9hcGkuc2tlZHVsby5jb20vcmVzb3VyY2VfaWQiOiJhMGk1aTAwMDAwMHlBa2NBQUUiLCJodHRwczovL2FwaS5za2VkdWxvLmNvbS9yb2xlcyI6WyJyZXNvdXJjZSIsImFkbWluaXN0cmF0b3IiXSwic3ViIjoic2FsZXNmb3JjZXwwMDU1aTAwMDAwNTBRYk9BQVUiLCJodHRwczovL2FwaS5za2VkdWxvLmNvbS92ZW5kb3IiOiJzYWxlc2ZvcmNlIn0._kiumXF6_Gn2MektwEueB51FlMm9a8w9VrmUjViIuOw"
-const DEFAULT_URL="https://dev-api.test.skl.io"
-
 export async function run(argv: any) {
     try {
-        let token = argv["t"] ?? DEFAULT_TOKEN
+        let token = argv["t"] ?? DEFAULT_ADMIN_TENANT_TOKEN
         let folder = argv["f"]
-        let url = argv["u"] ?? DEFAULT_URL
+        let url = argv["u"] ?? DEFAULT_TENANT_ENVIRONMENT_URL
 
         let uploadJson = JSON.parse(readFileSync(`./${folder}/upload_config.json`).toString())
 
