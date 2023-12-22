@@ -25,7 +25,9 @@ export const URLS = {
 export let DEFAULT_ADMIN_TENANT_TOKEN = ""
 export let DEFAULT_TENANT_ENVIRONMENT_URL = ""
 
-let file = JSON.parse(fs.readFileSync(`${basePath}/config/environment.json`, 'utf-8'))
+try {
+    let file = JSON.parse(fs.readFileSync(`${basePath}/config/environment.json`, 'utf-8'))
 
-DEFAULT_ADMIN_TENANT_TOKEN = file.DEFAULT_ADMIN_TENANT_TOKEN
-DEFAULT_TENANT_ENVIRONMENT_URL = file.DEFAULT_TENANT_ENVIRONMENT_URL
+    DEFAULT_ADMIN_TENANT_TOKEN = file.DEFAULT_ADMIN_TENANT_TOKEN
+    DEFAULT_TENANT_ENVIRONMENT_URL = file.DEFAULT_TENANT_ENVIRONMENT_URL
+} catch {}
