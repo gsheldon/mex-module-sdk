@@ -1,7 +1,7 @@
+import fs from "fs";
+
 export const basePath = '.'
 
-export const DEFAULT_ADMIN_TENANT_TOKEN = ""
-export const DEFAULT_TENANT_ENVIRONMENT_URL = "https://dev-api.test.skl.io"
 export const URLS = {
     "DEV": [
         "https://dev-api.test.skl.io",
@@ -21,3 +21,11 @@ export const URLS = {
         "https://api.ca.skedulo.com",
     ]
 }
+
+export let DEFAULT_ADMIN_TENANT_TOKEN = ""
+export let DEFAULT_TENANT_ENVIRONMENT_URL = ""
+
+let file = JSON.parse(fs.readFileSync(`${basePath}/config/environment.json`, 'utf-8'))
+
+DEFAULT_ADMIN_TENANT_TOKEN = file.DEFAULT_ADMIN_TENANT_TOKEN
+DEFAULT_TENANT_ENVIRONMENT_URL = file.DEFAULT_TENANT_ENVIRONMENT_URL
