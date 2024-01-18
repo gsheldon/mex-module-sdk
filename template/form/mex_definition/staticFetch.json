@@ -4,8 +4,7 @@
     "object": "Products",
     "fields": [
       "UID",
-      "Name",
-      "Description"
+      "Name"
     ],
     "filter": "",
     "variables": {}
